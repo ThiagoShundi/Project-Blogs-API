@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     },
     );
-    // UsersModel.associate = (models) => {
-    //     UsersModel.belongsTo(models.blog_posts, {
-    //     foreignKey: 'idBlog_posts',
-    //     as: 'blog_posts',
-    //   });
-    // };
+    User.associate = (models) => {
+      User.hasMany(models.BlogPost, {
+        foreignKey: 'id',
+        as: 'blogPosts',
+      });
+    };
     return User;
   };
   
