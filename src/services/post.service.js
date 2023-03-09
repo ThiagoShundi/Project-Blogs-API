@@ -22,8 +22,8 @@ const createPosts = ({ userId, title, content }) => BlogPost
 .create({ title,
 content,
 userId,
+updated: new Date(),
 published: new Date(),
-updated: new Date(), 
 });
 
   module.exports = {

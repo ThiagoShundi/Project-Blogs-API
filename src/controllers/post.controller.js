@@ -1,13 +1,13 @@
 require('dotenv/config');
-const Sequelize = require('sequelize');
-const config = require('../config/config');
+// const Sequelize = require('sequelize');
+// const config = require('../config/config');
 const { verifyToken } = require('../auth/authFunctions');
 
-const env = process.env.NODE_ENV || 'development';
+// const env = process.env.NODE_ENV || 'development';
 
 const { postService, categoryService, postCategoryService } = require('../services');
 
-const sequelize = new Sequelize(config[env]);
+// const sequelize = new Sequelize(config[env]);
 
 const getPost = async (_req, res) => {
   try {
@@ -38,7 +38,7 @@ const getPostbyId = async (req, res) => {
   };
 
 const createPost = async (req, res) => {
-    const t = await sequelize.transaction();
+    // const t = await sequelize.transaction();
     try {
         const { title, content, categoryIds } = req.body;
         const { authorization } = req.headers;
@@ -53,10 +53,10 @@ const createPost = async (req, res) => {
         const userId = verifyToken(authorization).data.id;
 
         const resultPost = await postService
-            .createPosts({ userId, title, content });       
-   
+            .createPosts({ userId, title, content });
+
         await Promise.all(categoryIds.map((e) => postCategoryService
-        .createPostCategory({ postId: userId, categoryId: e }, { transaction: t })));
+        .createPostCategory({ postId: resultPost.dataValues.id, categoryId: e })));
 
         res.status(201).json(resultPost);
     } catch (err) {
