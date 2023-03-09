@@ -4,7 +4,7 @@ const secret = process.env.JWT_SECRET || 'seusecretdetoken';
 
 const JWT_CONFIG = {
   algorithm: 'HS256',
-  expiresIn: '60min',
+  expiresIn: '500min',
 };
 
 const createToken = (data) => jwt.sign({ data }, secret, JWT_CONFIG);

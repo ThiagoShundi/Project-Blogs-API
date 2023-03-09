@@ -19,7 +19,7 @@ const create = async (req, res) => {
           return res.status(400).json({ message: 'Invalid fields' });
         }
     
-        const token = createToken({ data: { emailValid } });
+        const token = createToken(emailValid);
 
         console.log(token);
 

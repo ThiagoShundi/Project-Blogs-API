@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     },
     );
-    // UsersModel.associate = (models) => {
-    //     UsersModel.belongsTo(models.blog_posts, {
-    //     foreignKey: 'idBlog_posts',
-    //     as: 'blog_posts',
+    // Category.associate = (models) => {
+    //   Category.hasMany(models.PostCategory, {
+    //     foreignKey: 'id',
+    //     as: 'PostCategories',
     //   });
     // };
     return Category;

@@ -4,13 +4,10 @@ const getAllCategory = () => Category.findAll();
 
 const createCategorys = ({ name }) => Category.create({ name });
 
-// const getByEmailUser = (email) => Category.findOne({ where: { email } });
-
-// const getByUserId = (userId) => Category.findByPk(userId, { attributes: { exclude: 'password' } });
+const getCategoryById = (userId) => Category.findByPk(userId);
 
   module.exports = {
     getAllCategory,
     createCategorys,
-    // getByEmailUser,
-    // getByUserId,
+    getCategoryById,
   };
