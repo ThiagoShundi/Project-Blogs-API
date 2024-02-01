@@ -14,7 +14,7 @@ This project was developed in the back-end course, with the proposal to develop 
 
 <li>Use the API;</li>
 <li>Use MySQL;</li>
-<li>Use the Node.js;</li>
+<li>Use Node.js;</li>
 
 </ul>
 
